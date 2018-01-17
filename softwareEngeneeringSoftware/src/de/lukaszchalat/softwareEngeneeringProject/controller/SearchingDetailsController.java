@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.Set;
 
 import de.lukaszchalat.softwareEngeneeringProject.model.SearchingDetails;
-import de.lukaszchalat.softwareEngeneeringProject.service.ValidationService;
+import de.lukaszchalat.softwareEngeneeringProject.service.SeachingDetailsValidator;
 import de.lukaszchalat.softwareEngeneeringProject.view.SearchingDetailsView;
 
 public class SearchingDetailsController 
@@ -26,24 +26,39 @@ public class SearchingDetailsController
 		@Override
 		public void actionPerformed(ActionEvent e) 
 		{
-			ValidationService validationService = ValidationService.getInstance();
-			
-			String location = searchingDetailsView.getLocationString();
-			
-			validationService.checkLocation( location ); 
-			
-			if( validationService.hasError() )
+			if( validateSearchingDetails( searchingDetailsView ) )
 			{
-				Set<String> errors = validationService.getErrorMessages();
 				
-				for( String error: errors )
-				{
-					System.out.println( error );
-				}
 			}
-			
+		}
+		
+	}
+	
+	private boolean validateSearchingDetails( SearchingDetailsView view )
+	{
+		SeachingDetailsValidator seachingDetailsValidator = SeachingDetailsValidator.getInstance();
+		
+		String location       = searchingDetailsView.getLocationString();
+		String dateFromString = searchingDetailsView.getDateFromString();
+		String dateToString   = searchingDetailsView.getDateToString();
+		
+		if( seachingDetailsValidator.checkLocation( location )
+		 && seachingDetailsValidator.checkDate( dateFromString, 1 )
+		 && seachingDetailsValidator.checkDate( dateToString, 2 ) )
+		{
 			
 		}
 		
+		if( seachingDetailsValidator.hasError() )
+		{
+			Set<String> errors = seachingDetailsValidator.getErrorMessages();
+			
+			errors.forEach( error -> System.out.println( error ) );
+			
+			return false;
+			
+		} 
+		
+		return true;
 	}
 }
