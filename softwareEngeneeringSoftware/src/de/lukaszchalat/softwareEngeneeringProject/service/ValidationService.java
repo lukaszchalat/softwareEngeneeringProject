@@ -30,6 +30,15 @@ public class ValidationService
 	{
 		location = location.toLowerCase().trim();
 		
+		if( location.isEmpty() )
+		{
+			this.hasError = true;
+			
+			addErrorMessage( "Nie podano miejsca pobytu." );
+			
+			return false;
+		}
+		
 		if( location.length() < 3 )
 		{
 			this.hasError = true;
