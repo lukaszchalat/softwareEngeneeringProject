@@ -1,11 +1,15 @@
 package de.lukaszchalat.softwareEngeneeringProject.main;
 
+import de.lukaszchalat.softwareEngeneeringProject.view.SearchingDetailsView;
+
 public class Main 
 {
 
-	public static void main(String[] args) 
+	public static void main( String[] args )
 	{
-		System.out.println( "Hello World !" );
+		SearchingDetailsView view = new SearchingDetailsView();
+		
+		view.setVisible( true );
 	}
 
 }
