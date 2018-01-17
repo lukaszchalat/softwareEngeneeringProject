@@ -41,7 +41,7 @@ public class SearchingDetailsView extends JFrame
 		this.panel.setLayout( null );
 		
 		this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-		this.setSize( 600, 600 );
+		this.setSize( 400, 300 );
 		
 		addViewElements();
 		
@@ -104,6 +104,8 @@ public class SearchingDetailsView extends JFrame
 		panel.add( standardDropDownList );
 		
 		executeSearchingButton = new JButton( "Szukaj" );
+		
+		executeSearchingButton.setBounds( 170, 200, 150, 25 );
 		
 		panel.add( executeSearchingButton );
 		
