@@ -92,6 +92,9 @@ public class SearchingDetailsView extends JFrame
 		numberOfRoomsDropDownList.setBounds( 170, 135, 150, 25 );
 		standardDropDownList.setBounds( 170, 160, 150, 25 );
 		
+		dateFromInputField.setText( SearchingDetailsViewData.DATE_FORMAT );
+		dateToInputField.setText( SearchingDetailsViewData.DATE_FORMAT );
+		
 		panel.add( locationInputField );
 		panel.add( dateFromInputField );
 		panel.add( dateToInputField );
