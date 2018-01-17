@@ -56,7 +56,7 @@ public class ValidationService
 		return true;
 	}
 	
-	public boolean checkDate( String stringDate )
+	public boolean checkDateFormat( String stringDate )
 	{
 		Pattern pattern = Pattern.compile( "^([0-2][0-9]||3[0-1]).(0[0-9]||1[0-2]).([0-9][0-9])?[0-9][0-9]$" );
 		Matcher matcher = pattern.matcher( stringDate );
