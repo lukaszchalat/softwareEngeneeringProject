@@ -55,9 +55,7 @@ public class SearchingDetailsController
 		
 		if( seachingDetailsValidator.hasError() )
 		{
-			Set<String> errors = seachingDetailsValidator.getErrorMessages();
-			
-			errors.forEach( error -> System.out.println( error ) );
+			seachingDetailsValidator.showErrorMessages();
 			
 			return false;
 			

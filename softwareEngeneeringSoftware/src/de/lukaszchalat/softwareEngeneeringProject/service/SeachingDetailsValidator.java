@@ -6,6 +6,9 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.swing.JOptionPane;
+
 import de.lukaszchalat.softwareEngeneeringProject.utilities.ErrorMessages;
 
 public class SeachingDetailsValidator 
@@ -164,6 +167,16 @@ public class SeachingDetailsValidator
 		}
 		
 		return true;
+	}
+	
+	public void showErrorMessages()
+	{
+		String title     = "B³êdna konfiguracja";
+		StringBuilder sb = new StringBuilder();
+		
+		this.errorMessages.forEach( errorMessage -> sb.append( errorMessage + "\n" ) );
+		
+		JOptionPane.showMessageDialog( null, sb.toString(), title, JOptionPane.PLAIN_MESSAGE);
 	}
 	
 	public void addErrorMessage( String errorMessage )
