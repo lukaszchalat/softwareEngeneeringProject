@@ -36,17 +36,21 @@ public class SearchingDetailsController
 	
 	private boolean validateSearchingDetails( SearchingDetailsView view )
 	{
+		boolean correct = true;
+		
 		SeachingDetailsValidator seachingDetailsValidator = SeachingDetailsValidator.getInstance();
 		
 		String location       = searchingDetailsView.getLocationString();
 		String dateFromString = searchingDetailsView.getDateFromString();
 		String dateToString   = searchingDetailsView.getDateToString();
 		
-		if( seachingDetailsValidator.checkLocation( location )
-		 && seachingDetailsValidator.checkDate( dateFromString, 1 )
-		 && seachingDetailsValidator.checkDate( dateToString, 2 ) )
+		correct = seachingDetailsValidator.checkLocation( location );
+		correct = seachingDetailsValidator.checkDate( dateFromString, 1 );
+		correct = seachingDetailsValidator.checkDate( dateToString, 2 );
+		
+		if( correct == true )
 		{
-			
+			seachingDetailsValidator.checkPeriod( dateFromString, dateToString );
 		}
 		
 		if( seachingDetailsValidator.hasError() )

@@ -110,19 +110,9 @@ public class SeachingDetailsValidator
 	
 	private boolean checkDateCorrectness( String stringDate, int field )
 	{	
-		String[] datePieces = stringDate.split( "\\." );
+		LocalDate localDate = DateConverter.convertFromStringToLocalDate( stringDate );
 		
-		int day   = Integer.parseInt( datePieces[0] );
-		int month = Integer.parseInt( datePieces[1] );
-		int year  = Integer.parseInt( datePieces[2] );
-		
-		LocalDate localDate = null;
-		
-		try
-		{
-			localDate = LocalDate.of( year, month, day );
-		} 
-		catch( DateTimeException ex )
+		if( localDate == null )
 		{
 			this.hasError = true;
 			
@@ -159,15 +149,18 @@ public class SeachingDetailsValidator
 		return true;
 	}
 	
-	public boolean checkPeriod( String dateFrom, String dateTo )
+	public boolean checkPeriod( String dateFromString, String dateToString )
 	{
-		try
+		LocalDate dateFrom = DateConverter.convertFromStringToLocalDate( dateFromString );
+		LocalDate dateTo   = DateConverter.convertFromStringToLocalDate( dateToString );
+		
+		if( dateFrom.compareTo( dateTo ) >= 0 )
 		{
+			this.hasError = true;
 			
-		}
-		catch( DateTimeException ex )
-		{
+			addErrorMessage( ErrorMessages.ERROR_DATE_TO_IS_NOT_AFTER_DATE_FROM );
 			
+			return false;
 		}
 		
 		return true;
