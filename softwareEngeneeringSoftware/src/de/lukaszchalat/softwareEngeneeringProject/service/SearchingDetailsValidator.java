@@ -11,22 +11,22 @@ import javax.swing.JOptionPane;
 
 import de.lukaszchalat.softwareEngeneeringProject.utilities.ErrorMessages;
 
-public class SeachingDetailsValidator 
+public class SearchingDetailsValidator 
 {
 	private boolean hasError                  = false;
 	private Set<String> errorMessages         = new LinkedHashSet<>();
-	private static SeachingDetailsValidator instance = null;
+	private static SearchingDetailsValidator instance = null;
 	
-	private SeachingDetailsValidator()
+	private SearchingDetailsValidator()
 	{
 		
 	}
 	
-	public static SeachingDetailsValidator getInstance()
+	public static SearchingDetailsValidator getInstance()
 	{
 		if( instance == null )
 		{
-			return new SeachingDetailsValidator();
+			return new SearchingDetailsValidator();
 		}
 		
 		return instance;

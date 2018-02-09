@@ -5,7 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.Set;
 
 import de.lukaszchalat.softwareEngeneeringProject.model.SearchingDetails;
-import de.lukaszchalat.softwareEngeneeringProject.service.SeachingDetailsValidator;
+import de.lukaszchalat.softwareEngeneeringProject.service.DateConverter;
+import de.lukaszchalat.softwareEngeneeringProject.service.SearchingDetailsValidator;
 import de.lukaszchalat.softwareEngeneeringProject.view.SearchingDetailsView;
 
 public class SearchingDetailsController 
@@ -28,7 +29,15 @@ public class SearchingDetailsController
 		{
 			if( validateSearchingDetails( searchingDetailsView ) )
 			{
+				searchingDetails = new SearchingDetails();
 				
+				searchingDetails.setLocation( searchingDetailsView.getLocationString() );
+				searchingDetails.setDateFrom( DateConverter.convertFromStringToLocalDate( searchingDetailsView.getDateFromString() ) );
+				searchingDetails.setDateTo( DateConverter.convertFromStringToLocalDate( searchingDetailsView.getDateToString() ) );
+				searchingDetails.setFloor( searchingDetailsView.getFloor() );
+				searchingDetails.setNumberOfPeople( searchingDetailsView.getNumberOfPeople() );
+				searchingDetails.setNumberOfRooms( searchingDetailsView.getNumberOfRooms() );
+				searchingDetails.setStandard( searchingDetailsView.getStandard() );
 			}
 		}
 		
@@ -38,24 +47,24 @@ public class SearchingDetailsController
 	{
 		boolean correct = true;
 		
-		SeachingDetailsValidator seachingDetailsValidator = SeachingDetailsValidator.getInstance();
+		SearchingDetailsValidator searchingDetailsValidator = SearchingDetailsValidator.getInstance();
 		
 		String location       = searchingDetailsView.getLocationString();
 		String dateFromString = searchingDetailsView.getDateFromString();
 		String dateToString   = searchingDetailsView.getDateToString();
 		
-		correct = seachingDetailsValidator.checkLocation( location );
-		correct = seachingDetailsValidator.checkDate( dateFromString, 1 );
-		correct = seachingDetailsValidator.checkDate( dateToString, 2 );
+		correct = searchingDetailsValidator.checkLocation( location );
+		correct = searchingDetailsValidator.checkDate( dateFromString, 1 );
+		correct = searchingDetailsValidator.checkDate( dateToString, 2 );
 		
 		if( correct == true )
 		{
-			seachingDetailsValidator.checkPeriod( dateFromString, dateToString );
+			searchingDetailsValidator.checkPeriod( dateFromString, dateToString );
 		}
 		
-		if( seachingDetailsValidator.hasError() )
+		if( searchingDetailsValidator.hasError() )
 		{
-			seachingDetailsValidator.showErrorMessages();
+			searchingDetailsValidator.showErrorMessages();
 			
 			return false;
 			
