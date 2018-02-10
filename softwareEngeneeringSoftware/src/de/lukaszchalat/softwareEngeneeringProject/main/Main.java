@@ -12,9 +12,7 @@ public class Main
 		UserLogin userLogin         = new UserLogin();
 		UserLoginView userLoginView = new UserLoginView();
 		
-		UserLoginController userLoginController = new UserLoginController( userLogin, userLoginView );
-		
-		userLoginView.setVisible( true );	
+		UserLoginController userLoginController = new UserLoginController( userLogin, userLoginView );	
 	}
 
 }

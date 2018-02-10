@@ -3,9 +3,11 @@ package de.lukaszchalat.softwareEngeneeringProject.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import de.lukaszchalat.softwareEngeneeringProject.model.User;
 import de.lukaszchalat.softwareEngeneeringProject.model.UserLogin;
 import de.lukaszchalat.softwareEngeneeringProject.service.UserLoginValidator;
 import de.lukaszchalat.softwareEngeneeringProject.view.UserLoginView;
+import de.lukaszchalat.softwareEngeneeringProject.view.UserRegistrationView;
 
 public class UserLoginController 
 {
@@ -41,7 +43,12 @@ public class UserLoginController
 			
 			if( e.getSource() == userLoginView.getCreateAccountButton() ) 
 			{
+				userLoginView.dispose();
 				
+				User user = new User();
+				UserRegistrationView userRegistrationView = new UserRegistrationView();
+				
+				UserRegistrationController userRegistrationController = new UserRegistrationController( user, userRegistrationView );
 			}
 		}
 		

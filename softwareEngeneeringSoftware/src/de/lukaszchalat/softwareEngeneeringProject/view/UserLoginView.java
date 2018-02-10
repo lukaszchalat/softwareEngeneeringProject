@@ -50,6 +50,7 @@ public class UserLoginView extends JFrame {
 		addViewElements();	
 		
 		this.setContentPane(contentPane);
+		this.setVisible( true );
 	}
 	
 	private void addViewElements()

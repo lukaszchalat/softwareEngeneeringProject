@@ -62,6 +62,8 @@ public class UserRegistrationView extends JFrame
 		addViewElements();
 		
 		this.setContentPane(contentPane);
+		
+		this.setVisible( true );
 	}
 	
 	private void addViewElements()
@@ -87,7 +89,7 @@ public class UserRegistrationView extends JFrame
 		emailLabel.setBounds(425, 125, UserRegistrationSettings.LABEL_LENGTH, UserRegistrationSettings.LABEL_WIDTH);
 		phoneNumberLabel.setBounds(425, 180, UserRegistrationSettings.LABEL_LENGTH, UserRegistrationSettings.LABEL_WIDTH);
 		passwordLabel.setBounds(425, 235, UserRegistrationSettings.LABEL_LENGTH, UserRegistrationSettings.LABEL_WIDTH);
-		userNameLabel.setBounds(425, 290, UserRegistrationSettings.LABEL_LENGTH, UserRegistrationSettings.LABEL_WIDTH);
+		userNameLabel.setBounds(397, 290, 178, 30);
 		hintLabel.setBounds(250, 400, 300, 30);
 		
 		// set labels horizontal alignment
@@ -99,7 +101,7 @@ public class UserRegistrationView extends JFrame
 		emailLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		phoneNumberLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		passwordLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		userNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		userNameLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		hintLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		// set labels font
@@ -212,7 +214,7 @@ public class UserRegistrationView extends JFrame
 		return this.emailInputField.getText();
 	}
 	
-	public String getphoneNumberString()
+	public String getPhoneNumberString()
 	{
 		return this.phoneNumberInputField.getText();
 	}
