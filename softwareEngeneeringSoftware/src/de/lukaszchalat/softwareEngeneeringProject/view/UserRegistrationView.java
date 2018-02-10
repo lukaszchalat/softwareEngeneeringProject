@@ -27,7 +27,7 @@ public class UserRegistrationView extends JFrame
 	private JLabel emailLabel;
 	private JLabel phoneNumberLabel;
 	private JLabel passwordLabel;
-	private JLabel repeatPasswordLabel;
+	private JLabel userNameLabel;
 	private JLabel hintLabel;
 	
 	// input fields
@@ -38,7 +38,7 @@ public class UserRegistrationView extends JFrame
 	private JTextField emailInputField;
 	private JTextField phoneNumberInputField;
 	private JTextField passwordInputField;
-	private JTextField repeatPasswordInputField;
+	private JTextField userNameInputField;
 	
 	// buttons
 	private JButton registerButton;
@@ -75,7 +75,7 @@ public class UserRegistrationView extends JFrame
 		emailLabel                = new JLabel( UserRegistrationSettings.EMAIL_LABEL );
 		phoneNumberLabel          = new JLabel( UserRegistrationSettings.PHONE_NUMBER_LABEL );
 		passwordLabel             = new JLabel( UserRegistrationSettings.PASSWORD_LABEL );
-		repeatPasswordLabel       = new JLabel( UserRegistrationSettings.REPEATED_PASSWORD_LABEL );
+		userNameLabel             = new JLabel( UserRegistrationSettings.USER_NAME_LABEL );
 		hintLabel                 = new JLabel( UserRegistrationSettings.HINT_LABEL );
 		
 		// set labels bounds
@@ -87,7 +87,7 @@ public class UserRegistrationView extends JFrame
 		emailLabel.setBounds(425, 125, UserRegistrationSettings.LABEL_LENGTH, UserRegistrationSettings.LABEL_WIDTH);
 		phoneNumberLabel.setBounds(425, 180, UserRegistrationSettings.LABEL_LENGTH, UserRegistrationSettings.LABEL_WIDTH);
 		passwordLabel.setBounds(425, 235, UserRegistrationSettings.LABEL_LENGTH, UserRegistrationSettings.LABEL_WIDTH);
-		repeatPasswordLabel.setBounds(425, 290, UserRegistrationSettings.LABEL_LENGTH, UserRegistrationSettings.LABEL_WIDTH);
+		userNameLabel.setBounds(425, 290, UserRegistrationSettings.LABEL_LENGTH, UserRegistrationSettings.LABEL_WIDTH);
 		hintLabel.setBounds(250, 400, 300, 30);
 		
 		// set labels horizontal alignment
@@ -99,7 +99,7 @@ public class UserRegistrationView extends JFrame
 		emailLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		phoneNumberLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		passwordLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		repeatPasswordLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		userNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		hintLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		// set labels font
@@ -111,7 +111,7 @@ public class UserRegistrationView extends JFrame
 		emailLabel.setFont(new Font("Verdana", Font.PLAIN, UserRegistrationSettings.LABEL_FONT_SIZE));
 		phoneNumberLabel.setFont(new Font("Verdana", Font.PLAIN, UserRegistrationSettings.LABEL_FONT_SIZE));
 		passwordLabel.setFont(new Font("Verdana", Font.PLAIN, UserRegistrationSettings.LABEL_FONT_SIZE));
-		repeatPasswordLabel.setFont(new Font("Verdana", Font.PLAIN, UserRegistrationSettings.LABEL_FONT_SIZE));
+		userNameLabel.setFont(new Font("Verdana", Font.PLAIN, UserRegistrationSettings.LABEL_FONT_SIZE));
 		hintLabel.setFont(new Font("Verdana", Font.PLAIN, UserRegistrationSettings.LABEL_FONT_SIZE));
 		
 		// add all labels to the panel
@@ -123,18 +123,18 @@ public class UserRegistrationView extends JFrame
 		contentPane.add(emailLabel);
 		contentPane.add(phoneNumberLabel);
 		contentPane.add(passwordLabel);
-		contentPane.add(repeatPasswordLabel);
+		contentPane.add(userNameLabel);
 		contentPane.add(hintLabel);
 		
 		// set input fields
-		firstNameInputField      = new JTextField();
-		lastNameInputField       = new JTextField();
-		countryInputField        = new JTextField();
-		cityInputField           = new JTextField();
-		emailInputField          = new JTextField();
-		phoneNumberInputField    = new JTextField();
-		passwordInputField       = new JTextField();
-		repeatPasswordInputField = new JTextField();
+		firstNameInputField   = new JTextField();
+		lastNameInputField    = new JTextField();
+		countryInputField     = new JTextField();
+		cityInputField        = new JTextField();
+		emailInputField       = new JTextField();
+		phoneNumberInputField = new JTextField();
+		passwordInputField    = new JTextField();
+		userNameInputField    = new JTextField();
 		
 		// set input fields bounds
 		firstNameInputField.setBounds(225, 125, UserRegistrationSettings.INPUT_FIELD_LENGTH, UserRegistrationSettings.INPUT_FIELD_WIDTH);
@@ -144,7 +144,7 @@ public class UserRegistrationView extends JFrame
 		emailInputField.setBounds(600, 125, UserRegistrationSettings.INPUT_FIELD_LENGTH, UserRegistrationSettings.INPUT_FIELD_WIDTH);
 		phoneNumberInputField.setBounds(600, 180, UserRegistrationSettings.INPUT_FIELD_LENGTH, UserRegistrationSettings.INPUT_FIELD_WIDTH);
 		passwordInputField.setBounds(600, 235, UserRegistrationSettings.INPUT_FIELD_LENGTH, UserRegistrationSettings.INPUT_FIELD_WIDTH);
-		repeatPasswordInputField.setBounds(600, 290, UserRegistrationSettings.INPUT_FIELD_LENGTH, UserRegistrationSettings.INPUT_FIELD_WIDTH);
+		userNameInputField.setBounds(600, 290, UserRegistrationSettings.INPUT_FIELD_LENGTH, UserRegistrationSettings.INPUT_FIELD_WIDTH);
 		
 		// set input fields columns
 		firstNameInputField.setColumns(UserRegistrationSettings.INPUT_FIELD_COLUMNS);
@@ -154,7 +154,7 @@ public class UserRegistrationView extends JFrame
 		emailInputField.setColumns(UserRegistrationSettings.INPUT_FIELD_COLUMNS);
 		phoneNumberInputField.setColumns(UserRegistrationSettings.INPUT_FIELD_COLUMNS);
 		passwordInputField.setColumns(UserRegistrationSettings.INPUT_FIELD_COLUMNS);
-		repeatPasswordInputField.setColumns(UserRegistrationSettings.INPUT_FIELD_COLUMNS);
+		userNameInputField.setColumns(UserRegistrationSettings.INPUT_FIELD_COLUMNS);
 		
 		// add all input fields to the panel
 		contentPane.add(firstNameInputField);
@@ -164,7 +164,7 @@ public class UserRegistrationView extends JFrame
 		contentPane.add(emailInputField);
 		contentPane.add(phoneNumberInputField);
 		contentPane.add(passwordInputField);
-		contentPane.add(repeatPasswordInputField);
+		contentPane.add(userNameInputField);
 		
 		// set buttons
 		registerButton = new JButton( UserRegistrationSettings.REGISTRATION_BUTTON_LABEL );
@@ -222,9 +222,9 @@ public class UserRegistrationView extends JFrame
 		return this.passwordInputField.getText();
 	}
 	
-	public String getRepeatPasswordString()
+	public String getUserNameString()
 	{
-		return this.repeatPasswordInputField.getText();
+		return this.userNameInputField.getText();
 	}
 	
 	public void clearAllInputFields()
@@ -236,7 +236,7 @@ public class UserRegistrationView extends JFrame
 		this.emailInputField.setText( null );
 		this.phoneNumberInputField.setText( null );
 		this.passwordInputField.setText( null );
-		this.repeatPasswordInputField.setText( null );
+		this.userNameInputField.setText( null );
 	}
 	
 	public void addActionListener( ActionListener actionListener )
@@ -244,6 +244,21 @@ public class UserRegistrationView extends JFrame
 		this.registerButton.addActionListener( actionListener );
 		this.resetButton.addActionListener( actionListener );
 		this.returnButton.addActionListener( actionListener );
+	}
+	
+	public JButton getRegistrationButton()
+	{
+		return this.registerButton;
+	}
+	
+	public JButton getResetButton()
+	{
+		return this.resetButton;
+	}
+	
+	public JButton getReturnButton()
+	{
+		return this.returnButton;
 	}
 
 }
