@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import de.lukaszchalat.softwareEngeneeringProject.model.UserLogin;
+import de.lukaszchalat.softwareEngeneeringProject.service.UserLoginValidator;
 import de.lukaszchalat.softwareEngeneeringProject.view.UserLoginView;
 
 public class UserLoginController 
@@ -26,9 +27,39 @@ public class UserLoginController
 		{
 			if( e.getSource() == userLoginView.getResetButton() )
 			{
-				System.out.println( "Resetuj!" );
+				userLoginView.clearAllInputFields();
+			}
+			
+			if( e.getSource() == userLoginView.getLoginButton() )
+			{
+				if( validateUserLogin( userLoginView ) )
+				{
+					System.out.println( "Walidacja zakonczona sukcesem." );
+				}
 			}
 		}
 		
+	}
+	
+	private boolean validateUserLogin( UserLoginView view )
+	{
+		boolean correct = true;
+		
+		UserLoginValidator userLoginValidator = UserLoginValidator.getInstance();
+		
+		correct = userLoginValidator.checkUserNameEmpty( view.getUserNameString() );
+		correct = userLoginValidator.checkUserPasswordEmpty( view.getUserPasswordString() );
+		correct = userLoginValidator.checkUserNameLength( view.getUserNameString() );
+		correct = userLoginValidator.checkUserPasswordLength( view.getUserPasswordString() );
+		
+		if( userLoginValidator.hasError() )
+		{
+			userLoginValidator.showErrorMessages();
+			
+			return false;
+			
+		} 
+		
+		return true;
 	}
 }

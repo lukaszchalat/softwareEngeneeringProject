@@ -41,6 +41,7 @@ public class UserLoginView extends JFrame {
 	{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(100, 100, 800, 600);
+		this.setLocationRelativeTo( null );
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -116,6 +117,12 @@ public class UserLoginView extends JFrame {
 	public String getUserPasswordString()
 	{
 		return this.userPasswordInputField.getText();
+	}
+	
+	public void clearAllInputFields()
+	{
+		this.userNameInputField.setText( null );
+		this.userPasswordInputField.setText( null );
 	}
 	
 	public JButton getLoginButton()
