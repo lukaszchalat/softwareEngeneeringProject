@@ -62,7 +62,7 @@ public class UserRegistrationValidator
 	
 	public boolean checkEmailFormat( String email, String errorMessage )
 	{
-		Pattern pattern = Pattern.compile( "^([0-2][0-9]||3[0-1]).(0[0-9]||1[0-2]).([0-9][0-9])?[0-9][0-9]$" );
+		Pattern pattern = Pattern.compile( "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$" );
 		Matcher matcher = pattern.matcher( email );
 		
 		if( email.trim().length() > 3 )

@@ -33,9 +33,9 @@ public class UserBuilder
 		return this;
 	}
 	
-	public UserBuilder firstName( String nickName )
+	public UserBuilder firstName( String firstName )
 	{
-		this.nickName = nickName;
+		this.firstName = firstName;
 		
 		return this;
 	}

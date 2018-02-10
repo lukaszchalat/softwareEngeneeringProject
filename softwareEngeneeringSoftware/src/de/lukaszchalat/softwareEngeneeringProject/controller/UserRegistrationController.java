@@ -3,9 +3,11 @@ package de.lukaszchalat.softwareEngeneeringProject.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import de.lukaszchalat.softwareEngeneeringProject.dao.UserDAO;
 import de.lukaszchalat.softwareEngeneeringProject.enums.ErrorMessages;
 import de.lukaszchalat.softwareEngeneeringProject.model.User;
 import de.lukaszchalat.softwareEngeneeringProject.model.UserLogin;
+import de.lukaszchalat.softwareEngeneeringProject.service.UserBuilder;
 import de.lukaszchalat.softwareEngeneeringProject.service.UserRegistrationValidator;
 import de.lukaszchalat.softwareEngeneeringProject.view.UserLoginView;
 import de.lukaszchalat.softwareEngeneeringProject.view.UserRegistrationView;
@@ -31,7 +33,21 @@ public class UserRegistrationController
 			{
 				if( validateUserRegistration( userRegistrationView ) )
 				{
+					UserBuilder userBuilder = new UserBuilder();
 					
+					user = userBuilder.nickName( userRegistrationView.getUserNameString() )
+					                  .password( userRegistrationView.getPasswordString() )
+					                  .email( userRegistrationView.getEmailString() )
+					                  .firstName( userRegistrationView.getFirstNameString() )
+					                  .lastName( userRegistrationView.getLastNameString() )
+					                  .city( userRegistrationView.getCityString() )
+					                  .country( userRegistrationView.getCountryString() )
+					                  .phoneNumber( userRegistrationView.getPhoneNumberString() )
+					                  .build();
+					
+					UserDAO userAccess = UserDAO.getInstance();
+					
+					userAccess.createUser( user );
 				}
 			}
 			
