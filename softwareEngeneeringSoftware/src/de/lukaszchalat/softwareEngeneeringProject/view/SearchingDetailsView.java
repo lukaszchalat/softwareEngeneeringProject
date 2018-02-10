@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import de.lukaszchalat.softwareEngeneeringProject.utilities.SearchingDetailsViewData;
+import de.lukaszchalat.softwareEngeneeringProject.utilities.SearchingDetailsViewSettings;
 
 public class SearchingDetailsView extends JFrame 
 {
@@ -51,13 +51,13 @@ public class SearchingDetailsView extends JFrame
 	
 	private void addViewElements()
 	{
-		locationLabel       = new JLabel( SearchingDetailsViewData.LOCATION_LABEL );
-		dateFromLabel       = new JLabel( SearchingDetailsViewData.DATE_FROM_LABEL );
-		dateToLabel         = new JLabel( SearchingDetailsViewData.DATE_TO_LABEL );
-		floorLabel          = new JLabel( SearchingDetailsViewData.FLOOR_LABEL );
-		numberOfPeopleLabel = new JLabel( SearchingDetailsViewData.NUMBER_OF_PEOPLE_LABEL );
-		numberOfRoomsLabel  = new JLabel( SearchingDetailsViewData.NUMBER_OF_ROOMS_LABEL );
-		standardLabel       = new JLabel( SearchingDetailsViewData.STANDARD_LABEL );
+		locationLabel       = new JLabel( SearchingDetailsViewSettings.LOCATION_LABEL );
+		dateFromLabel       = new JLabel( SearchingDetailsViewSettings.DATE_FROM_LABEL );
+		dateToLabel         = new JLabel( SearchingDetailsViewSettings.DATE_TO_LABEL );
+		floorLabel          = new JLabel( SearchingDetailsViewSettings.FLOOR_LABEL );
+		numberOfPeopleLabel = new JLabel( SearchingDetailsViewSettings.NUMBER_OF_PEOPLE_LABEL );
+		numberOfRoomsLabel  = new JLabel( SearchingDetailsViewSettings.NUMBER_OF_ROOMS_LABEL );
+		standardLabel       = new JLabel( SearchingDetailsViewSettings.STANDARD_LABEL );
 		
 		// set labels bounds
 		locationLabel.setBounds( 10, 10, 150, 25);
@@ -79,10 +79,10 @@ public class SearchingDetailsView extends JFrame
 		locationInputField         = new JTextField( 10 );
 		dateFromInputField         = new JTextField( 10 );
 		dateToInputField           = new JTextField( 10 );
-		floorDropDownList          = new JComboBox( SearchingDetailsViewData.getFloors() );
-		numberOfPeopleDropDownList = new JComboBox( SearchingDetailsViewData.getNumbersOfPeople() );
-		numberOfRoomsDropDownList  = new JComboBox( SearchingDetailsViewData.getNumbersOfRooms() );
-		standardDropDownList       = new JComboBox( SearchingDetailsViewData.getStandard() );
+		floorDropDownList          = new JComboBox( SearchingDetailsViewSettings.getFloors() );
+		numberOfPeopleDropDownList = new JComboBox( SearchingDetailsViewSettings.getNumbersOfPeople() );
+		numberOfRoomsDropDownList  = new JComboBox( SearchingDetailsViewSettings.getNumbersOfRooms() );
+		standardDropDownList       = new JComboBox( SearchingDetailsViewSettings.getStandard() );
 		
 		locationInputField.setBounds( 170, 10, 150, 25 );
 		dateFromInputField.setBounds( 170, 35, 150, 25 );
@@ -92,8 +92,8 @@ public class SearchingDetailsView extends JFrame
 		numberOfRoomsDropDownList.setBounds( 170, 135, 150, 25 );
 		standardDropDownList.setBounds( 170, 160, 150, 25 );
 		
-		dateFromInputField.setText( SearchingDetailsViewData.DATE_FORMAT );
-		dateToInputField.setText( SearchingDetailsViewData.DATE_FORMAT );
+		dateFromInputField.setText( SearchingDetailsViewSettings.DATE_FORMAT );
+		dateToInputField.setText( SearchingDetailsViewSettings.DATE_FORMAT );
 		
 		panel.add( locationInputField );
 		panel.add( dateFromInputField );

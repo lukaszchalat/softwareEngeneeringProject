@@ -3,7 +3,7 @@ package de.lukaszchalat.softwareEngeneeringProject.utilities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchingDetailsViewData 
+public class SearchingDetailsViewSettings 
 {
 	// labels
 	public static final String LOCATION_LABEL = "Miejsce: ";

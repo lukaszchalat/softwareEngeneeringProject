@@ -1,6 +1,5 @@
 package de.lukaszchalat.softwareEngeneeringProject.service;
 
-import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;

@@ -3,6 +3,7 @@ package de.lukaszchalat.softwareEngeneeringProject.main;
 import de.lukaszchalat.softwareEngeneeringProject.controller.SearchingDetailsController;
 import de.lukaszchalat.softwareEngeneeringProject.model.SearchingDetails;
 import de.lukaszchalat.softwareEngeneeringProject.view.SearchingDetailsView;
+import de.lukaszchalat.softwareEngeneeringProject.view.UserLoginView;
 
 public class Main 
 {
@@ -15,6 +16,7 @@ public class Main
 		SearchingDetailsController controller = new SearchingDetailsController( model, view );
 		
 		view.setVisible( true );
+		
 	}
 
 }
