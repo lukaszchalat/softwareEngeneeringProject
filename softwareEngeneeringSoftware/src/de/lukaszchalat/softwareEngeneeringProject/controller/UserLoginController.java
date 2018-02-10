@@ -52,7 +52,7 @@ public class UserLoginController
 					}
 					else
 					{
-						JOptionPane.showMessageDialog( null, "U¿ytkownik o tej nazwie nie istnieje!", "Uwaga", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog( null, "Uzytkownik o tej nazwie nie istnieje!", "Uwaga", JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
 			}

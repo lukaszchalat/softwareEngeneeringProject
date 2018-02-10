@@ -9,8 +9,8 @@ public class SearchingDetailsViewSettings
 	public static final String LOCATION_LABEL = "Miejsce: ";
 	public static final String DATE_FROM_LABEL = "Data przyjazdu: ";
 	public static final String DATE_TO_LABEL = "Data odjazdu: ";
-	public static final String FLOOR_LABEL = "Piêtro: ";
-	public static final String NUMBER_OF_PEOPLE_LABEL = "Pokój dla: ";
+	public static final String FLOOR_LABEL = "Pietro: ";
+	public static final String NUMBER_OF_PEOPLE_LABEL = "Pokoj dla: ";
 	public static final String NUMBER_OF_ROOMS_LABEL = "Liczba pokoi: ";
 	public static final String STANDARD_LABEL = "Standard: ";
 	
@@ -30,7 +30,7 @@ public class SearchingDetailsViewSettings
 		
 		for( int i = 1; i <= MAX_NUMBER_OF_FLOORS; i++ )
 		{
-			floors.add( new Integer( i ).toString() + " piêtro" );
+			floors.add( new Integer( i ).toString() + " piï¿½tro" );
 		}
 		
 		floors.add( "-" );
@@ -44,8 +44,8 @@ public class SearchingDetailsViewSettings
 		
 		for( int i = 1; i <= MAX_NUMBER_OF_PEOPLE; i++ )
 		{
-			if( i == 1 ) numbersOfPeople.add( new Integer( i ).toString() + " goœcia" );
-			else numbersOfPeople.add( new Integer( i ).toString() + " goœci" );
+			if( i == 1 ) numbersOfPeople.add( new Integer( i ).toString() + " goï¿½cia" );
+			else numbersOfPeople.add( new Integer( i ).toString() + " goï¿½ci" );
 		}
 		
 		return numbersOfPeople.toArray( new String[ MAX_NUMBER_OF_PEOPLE ] );
@@ -57,7 +57,7 @@ public class SearchingDetailsViewSettings
 		
 		for( int i = 1; i <= MAX_NUMBER_OF_ROOMS; i++ )
 		{
-			if( i == 1 ) numbersOfRooms.add( new Integer( i ).toString() + " pokój" );
+			if( i == 1 ) numbersOfRooms.add( new Integer( i ).toString() + " pokï¿½j" );
 			else numbersOfRooms.add( new Integer( i ).toString() + " pokoje" );
 		}
 		
