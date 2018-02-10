@@ -9,10 +9,16 @@ public class SearchingResult
 	private double price;
 	private String startingDate;
 	private String finalDate;
+	private int id;
 	
 	public SearchingResult()
 	{
 		
+	}
+	
+	public int getId() 
+	{
+		return id;
 	}
 	
 	public String getHotelName() 
@@ -63,6 +69,11 @@ public class SearchingResult
 	public void setFinalDate(String finalDate) 
 	{
 		this.finalDate = finalDate;
+	}
+	
+	public void setId(int id) 
+	{
+		this.id = id;
 	}
 	
 }

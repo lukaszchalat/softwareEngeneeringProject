@@ -10,22 +10,10 @@ public class SearchingDetails
 	private int floor;
 	private int numberOfPeople;
 	private int numberOfRooms;
-	private String standard;
+	private int standard;
 	
 	public SearchingDetails()
 	{
-		
-	}
-	
-	public SearchingDetails( String location, LocalDate dateFrom, LocalDate dateTo, int floor, int numberOfPeople, int numberOfRooms, String standard ) 
-	{
-		this.location       = location;
-		this.dateFrom       = dateFrom;
-		this.dateTo         = dateTo;
-		this.floor          = floor;
-		this.numberOfPeople = numberOfPeople;
-		this.numberOfRooms  = numberOfRooms;
-		this.standard       = standard;
 		
 	}
 	
@@ -59,7 +47,7 @@ public class SearchingDetails
 		return numberOfRooms;
 	}
 	
-	public String getStandard() 
+	public int getStandard() 
 	{
 		return standard;
 	}
@@ -79,23 +67,24 @@ public class SearchingDetails
 		this.dateTo = dateTo;
 	}
 	
-	public void setFloor(int floor) 
+	public void setFloor( String floor ) 
 	{
-		this.floor = floor;
+		if( floor.equals( "parter" ) ) this.floor = 0;
+		else this.floor = new Integer( floor.split( " " )[0] );
 	}
 	
-	public void setNumberOfPeople(int numberOfPeople) 
+	public void setNumberOfPeople( String numberOfPeople ) 
 	{
-		this.numberOfPeople = numberOfPeople;
+		this.numberOfPeople = new Integer( numberOfPeople.split( " " )[0] );
 	}
 	
-	public void setNumberOfRooms(int numberOfRooms) 
+	public void setNumberOfRooms( String numberOfRooms ) 
 	{
-		this.numberOfRooms = numberOfRooms;
+		this.numberOfRooms = new Integer( numberOfRooms.split( " " )[0] );
 	}
 	
-	public void setStandard(String standard) 
+	public void setStandard( String standard ) 
 	{
-		this.standard = standard;
+		this.standard = new Integer( standard.split( " " )[0] );
 	}
 }

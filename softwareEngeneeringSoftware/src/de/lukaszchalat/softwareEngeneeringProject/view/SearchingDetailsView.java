@@ -40,6 +40,7 @@ public class SearchingDetailsView extends JFrame
 	{
 		this.panel = new JPanel();
 		this.panel.setLayout( null );
+		this.setLocationRelativeTo( null );
 		
 		this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		this.setSize( 400, 300 );
@@ -47,6 +48,7 @@ public class SearchingDetailsView extends JFrame
 		addViewElements();
 		
 		this.add( this.panel );
+		this.setVisible( true );
 		
 	}
 	
@@ -127,19 +129,19 @@ public class SearchingDetailsView extends JFrame
 		return this.dateToInputField.getText();
 	}
 	
-	public int getFloor()
+	public String getFloor()
 	{
-		return (int) this.floorDropDownList.getSelectedItem();
+		return (String) this.floorDropDownList.getSelectedItem();
 	}
 	
-	public int getNumberOfPeople()
+	public String getNumberOfPeople()
 	{
-		return (int) this.numberOfPeopleDropDownList.getSelectedItem();
+		return (String) this.numberOfPeopleDropDownList.getSelectedItem();
 	}
 	
-	public int getNumberOfRooms()
+	public String getNumberOfRooms()
 	{
-		return (int) this.numberOfRoomsDropDownList.getSelectedItem();
+		return (String) this.numberOfRoomsDropDownList.getSelectedItem();
 	}
 	
 	public String getStandard()
