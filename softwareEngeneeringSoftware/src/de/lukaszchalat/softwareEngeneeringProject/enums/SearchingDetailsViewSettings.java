@@ -1,4 +1,4 @@
-package de.lukaszchalat.softwareEngeneeringProject.utilities;
+package de.lukaszchalat.softwareEngeneeringProject.enums;
 
 import java.util.ArrayList;
 import java.util.List;

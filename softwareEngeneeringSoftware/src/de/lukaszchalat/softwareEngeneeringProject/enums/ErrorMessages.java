@@ -1,4 +1,4 @@
-package de.lukaszchalat.softwareEngeneeringProject.utilities;
+package de.lukaszchalat.softwareEngeneeringProject.enums;
 
 public class ErrorMessages 
 {

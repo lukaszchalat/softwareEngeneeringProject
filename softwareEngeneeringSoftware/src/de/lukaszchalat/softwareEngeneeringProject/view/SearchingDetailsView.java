@@ -7,7 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import de.lukaszchalat.softwareEngeneeringProject.utilities.SearchingDetailsViewSettings;
+
+import de.lukaszchalat.softwareEngeneeringProject.enums.SearchingDetailsViewSettings;
 
 public class SearchingDetailsView extends JFrame 
 {

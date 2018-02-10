@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
-import de.lukaszchalat.softwareEngeneeringProject.utilities.ErrorMessages;
+import de.lukaszchalat.softwareEngeneeringProject.enums.ErrorMessages;
 
 public class SearchingDetailsValidator 
 {

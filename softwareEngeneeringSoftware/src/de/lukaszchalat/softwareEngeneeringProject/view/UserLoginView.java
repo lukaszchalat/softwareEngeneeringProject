@@ -7,12 +7,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import de.lukaszchalat.softwareEngeneeringProject.utilities.UserLoginViewSettings;
+import de.lukaszchalat.softwareEngeneeringProject.enums.UserLoginViewSettings;
 
 import javax.swing.JLabel;
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -105,4 +107,37 @@ public class UserLoginView extends JFrame {
 		contentPane.add(resetButton);
 		contentPane.add(createAccountButton);
 	}
+	
+	public String getUserNameString()
+	{
+		return this.userNameInputField.getText();
+	}
+	
+	public String getUserPasswordString()
+	{
+		return this.userPasswordInputField.getText();
+	}
+	
+	public JButton getLoginButton()
+	{
+		return this.loginButton;
+	}
+	
+	public JButton getResetButton()
+	{
+		return this.resetButton;
+	}
+	
+	public JButton getCreateAccountButton()
+	{
+		return this.createAccountButton;
+	}
+	
+	public void addActionListener( ActionListener actionListener )
+	{
+		this.loginButton.addActionListener( actionListener );
+		this.resetButton.addActionListener( actionListener );
+		this.createAccountButton.addActionListener( actionListener );
+	}
+	
 }
