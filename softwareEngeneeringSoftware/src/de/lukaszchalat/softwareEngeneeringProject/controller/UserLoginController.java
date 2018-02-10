@@ -34,8 +34,14 @@ public class UserLoginController
 			{
 				if( validateUserLogin( userLoginView ) )
 				{
-					System.out.println( "Walidacja zakonczona sukcesem." );
+					// sprawdz czy taki uzytkownik juz istnieje w bazie danych
+					// jesli nie pokaz stosowny komunikat
 				}
+			}
+			
+			if( e.getSource() == userLoginView.getCreateAccountButton() ) 
+			{
+				
 			}
 		}
 		
