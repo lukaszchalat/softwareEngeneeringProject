@@ -8,6 +8,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import de.lukaszchalat.softwareEngeneeringProject.model.User;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -27,10 +30,10 @@ public class UserControlPanelView extends JFrame {
 	private JMenuItem showReservations;
 	private JMenuItem doReservation;
 	
-	private String userName;
+	private User user;
 
 
-	public UserControlPanelView( String userName ) 
+	public UserControlPanelView( User user ) 
 	{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(100, 100, 450, 300);
@@ -58,7 +61,9 @@ public class UserControlPanelView extends JFrame {
 		this.setContentPane(contentPane);
 		this.setVisible( true );
 		
-		this.userName = userName;
+		this.user = user;
+		
+		System.out.println( user.getId() );
 	}
 	
 	class MenuListener implements ActionListener

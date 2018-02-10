@@ -42,11 +42,13 @@ public class UserLoginController
 				{
 					UserDAO userDAO = UserDAO.getInstance();
 					
-					if( userDAO.checkIfExist( userLoginView.getUserNameString(), userLoginView.getUserPasswordString() ) )
+					User user = userDAO.getUser( userLoginView.getUserNameString(), userLoginView.getUserPasswordString() );
+					
+					if( user != null )
 					{
 						userLoginView.dispose();
 						
-						UserControlPanelView controlPanel = new UserControlPanelView( userLoginView.getUserNameString() );
+						UserControlPanelView controlPanel = new UserControlPanelView( user );
 					}
 					else
 					{

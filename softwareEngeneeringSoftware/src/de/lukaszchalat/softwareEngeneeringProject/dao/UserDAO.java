@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 import de.lukaszchalat.softwareEngeneeringProject.model.User;
 import de.lukaszchalat.softwareEngeneeringProject.mysql.MysqlConnection;
+import de.lukaszchalat.softwareEngeneeringProject.service.UserBuilder;
 
 public class UserDAO 
 {
@@ -31,7 +32,7 @@ public class UserDAO
 	public boolean createUser( User user )
 	{
 		
-		if( ! checkIfExist( user.getNickName(), user.getPassword() ) )
+		if( getUser( user.getNickName(), user.getPassword() ) == null )
 		{
 		
 			try
@@ -69,19 +70,23 @@ public class UserDAO
 		return true;
 	}
 	
-	public boolean checkIfExist( String userName, String password )
+	public User getUser( String userName, String password )
 	{
 		try
 		{
 			statement = connection.createStatement();
 			
-			String query = "select count(*) from clients where userName='" + userName + "' and password='" + password + "'";
+			String query = "select id, username, password from clients where userName='" + userName + "' and password='" + password + "'";
 			
 			ResultSet resultSet = statement.executeQuery( query );
 			
 			while( resultSet.next() )
 			{ 
-				return true;
+				UserBuilder userBuilder = new UserBuilder();
+				
+				return userBuilder.id( resultSet.getInt( "id" ) )
+						          .nickName( resultSet.getString( "userName" ) )
+						          .build();
 			}
 		}
 		catch( SQLException ex )
@@ -89,6 +94,6 @@ public class UserDAO
 			ex.printStackTrace();
 		}
 		
-		return false;
+		return null;
 	}
 }

@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
 import de.lukaszchalat.softwareEngeneeringProject.enums.UserLoginViewSettings;
@@ -27,7 +28,7 @@ public class UserLoginView extends JFrame {
 	
 	// input fields
 	private JTextField userNameInputField;
-	private JTextField userPasswordInputField;
+	private JPasswordField userPasswordInputField;
 	
 	// buttons
 	private JButton loginButton;
@@ -78,7 +79,7 @@ public class UserLoginView extends JFrame {
 		
 		// set input fields
 		userNameInputField     = new JTextField();
-		userPasswordInputField = new JTextField();
+		userPasswordInputField = new JPasswordField();
 		
 		// set input label bounds
 		userNameInputField.setBounds(350, 205, 250, 50);

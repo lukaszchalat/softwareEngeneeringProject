@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
 import de.lukaszchalat.softwareEngeneeringProject.enums.UserRegistrationSettings;
@@ -37,7 +38,7 @@ public class UserRegistrationView extends JFrame
 	private JTextField cityInputField;
 	private JTextField emailInputField;
 	private JTextField phoneNumberInputField;
-	private JTextField passwordInputField;
+	private JPasswordField passwordInputField;
 	private JTextField userNameInputField;
 	
 	// buttons
@@ -136,7 +137,7 @@ public class UserRegistrationView extends JFrame
 		cityInputField        = new JTextField();
 		emailInputField       = new JTextField();
 		phoneNumberInputField = new JTextField();
-		passwordInputField    = new JTextField();
+		passwordInputField    = new JPasswordField();
 		userNameInputField    = new JTextField();
 		
 		// set input fields bounds
