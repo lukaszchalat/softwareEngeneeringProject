@@ -12,6 +12,7 @@ import de.lukaszchalat.softwareEngeneeringProject.model.SearchingDetails;
 import de.lukaszchalat.softwareEngeneeringProject.model.SearchingResult;
 import de.lukaszchalat.softwareEngeneeringProject.service.DateConverter;
 import de.lukaszchalat.softwareEngeneeringProject.service.SearchingDetailsValidator;
+import de.lukaszchalat.softwareEngeneeringProject.service.TableBuilder;
 import de.lukaszchalat.softwareEngeneeringProject.view.SearchingDetailsView;
 import de.lukaszchalat.softwareEngeneeringProject.view.UserControlPanelView;
 
@@ -50,7 +51,7 @@ public class SearchingDetailsController
 				
 				Set<SearchingResult> results = serchingDetailsDAO.getResults( searchingDetails );
 				
-				JTable table = createTable( results );
+				JTable table = TableBuilder.createResultTable( results );
 				
 				searchingDetailsView.dispose();
 				
@@ -88,29 +89,6 @@ public class SearchingDetailsController
 		} 
 		
 		return true;
-	}
-	
-	private JTable createTable( Set<SearchingResult> results )
-	{
-		String[] columnNames = { "Hotel", "Adres", "Cena", "Przyjazd", "Odjazd", "ID" };
-		
-		String[][] data = new String[ results.size() ][columnNames.length];
-		
-		Iterator<SearchingResult> resultIterator = results.iterator();
-		
-		for( int i = 0; i < results.size(); i++ )
-		{
-			SearchingResult result = resultIterator.next();
-			
-			data[i][0] = result.getHotelName();
- 		    data[i][1] = result.getHotelAddress();
-		    data[i][2] = new Double( result.getPrice() ).toString();
-		    data[i][3] = result.getStartingDate().toString();
-		    data[i][4] = result.getFinalDate().toString();
-		    data[i][5] = new Integer( result.getId() ).toString();
-		}
-		
-		return new JTable( data, columnNames );
 	}
 	
 	public void setUserControlPanelView( UserControlPanelView userControlPanelView )

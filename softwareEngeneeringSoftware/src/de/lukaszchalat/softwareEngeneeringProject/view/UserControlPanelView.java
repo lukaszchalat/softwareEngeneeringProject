@@ -13,8 +13,10 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 
 import de.lukaszchalat.softwareEngeneeringProject.controller.SearchingDetailsController;
+import de.lukaszchalat.softwareEngeneeringProject.dao.ReservationDAO;
 import de.lukaszchalat.softwareEngeneeringProject.model.Reservation;
 import de.lukaszchalat.softwareEngeneeringProject.model.SearchingDetails;
 import de.lukaszchalat.softwareEngeneeringProject.model.User;
@@ -126,6 +128,13 @@ public class UserControlPanelView extends JFrame {
 					reservation.setDateFrom( table.getModel().getValueAt( row, 3 ).toString() );
 					reservation.setDateTo( table.getModel().getValueAt( row, 4 ).toString() );
 					reservation.setRealized( false );
+					
+					ReservationDAO reservationDAO = ReservationDAO.getInstance();
+					
+					if( reservationDAO.doReservation( reservation ) )
+					{
+						
+					}
 				}
 			}
 			
