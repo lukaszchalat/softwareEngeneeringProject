@@ -47,7 +47,12 @@ public class UserRegistrationController
 					
 					UserDAO userAccess = UserDAO.getInstance();
 					
-					userAccess.createUser( user );
+					if( userAccess.createUser( user ) )
+					{
+						userRegistrationView.dispose();
+						
+						UserLoginController userLoginController = new UserLoginController( new UserLogin(), new UserLoginView() );
+					}
 				}
 			}
 			

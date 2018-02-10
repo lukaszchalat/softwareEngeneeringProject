@@ -31,7 +31,7 @@ public class UserDAO
 	public boolean createUser( User user )
 	{
 		
-		if( ! checkIfExist( user.getNickName() ) )
+		if( ! checkIfExist( user.getNickName(), user.getPassword() ) )
 		{
 		
 			try
@@ -69,18 +69,18 @@ public class UserDAO
 		return true;
 	}
 	
-	private boolean checkIfExist( String userName )
+	public boolean checkIfExist( String userName, String password )
 	{
 		try
 		{
 			statement = connection.createStatement();
 			
-			String query = "select count(*) from clients where userName='" + userName + "'";
+			String query = "select count(*) from clients where userName='" + userName + "' and password='" + password + "'";
 			
 			ResultSet resultSet = statement.executeQuery( query );
 			
-			if( resultSet.next() )
-			{
+			while( resultSet.next() )
+			{ 
 				return true;
 			}
 		}

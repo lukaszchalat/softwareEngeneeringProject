@@ -3,9 +3,13 @@ package de.lukaszchalat.softwareEngeneeringProject.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
+import de.lukaszchalat.softwareEngeneeringProject.dao.UserDAO;
 import de.lukaszchalat.softwareEngeneeringProject.model.User;
 import de.lukaszchalat.softwareEngeneeringProject.model.UserLogin;
 import de.lukaszchalat.softwareEngeneeringProject.service.UserLoginValidator;
+import de.lukaszchalat.softwareEngeneeringProject.view.UserControlPanelView;
 import de.lukaszchalat.softwareEngeneeringProject.view.UserLoginView;
 import de.lukaszchalat.softwareEngeneeringProject.view.UserRegistrationView;
 
@@ -36,8 +40,18 @@ public class UserLoginController
 			{
 				if( validateUserLogin( userLoginView ) )
 				{
-					// sprawdz czy taki uzytkownik juz istnieje w bazie danych
-					// jesli nie pokaz stosowny komunikat
+					UserDAO userDAO = UserDAO.getInstance();
+					
+					if( userDAO.checkIfExist( userLoginView.getUserNameString(), userLoginView.getUserPasswordString() ) )
+					{
+						userLoginView.dispose();
+						
+						UserControlPanelView controlPanel = new UserControlPanelView( userLoginView.getUserNameString() );
+					}
+					else
+					{
+						JOptionPane.showMessageDialog( null, "U¿ytkownik o tej nazwie nie istnieje!", "Uwaga", JOptionPane.INFORMATION_MESSAGE);
+					}
 				}
 			}
 			
